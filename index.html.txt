@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>无锡导游工作室 - 专业导游团队，定制您的无锡之旅</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind 配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af', // 深蓝色 - 专业、信任
+            secondary: '#059669', // 绿色 - 自然、活力
+            accent: '#f59e0b', // 橙色 - 热情、友好
+            dark: '#1e293b',
+            light: '#f8fafc'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      .transition-custom {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .bg-blur {
+        backdrop-filter: blur(8px);
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body class="font-inter text-dark bg-light overflow-x-hidden">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-sm shadow-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-2">
+          <div class="bg-primary text-white h-10 w-10 rounded-lg flex items-center justify-center">
+            <i class="fa fa-map text-xl"></i>
+          </div>
+          <div>
+            <h1 class="text-xl font-bold text-primary">无锡导游工作室</h1>
+            <p class="text-xs text-gray-500 -mt-1">用心服务，让旅行更精彩</p>
+          </div>
+        </a>
+        
+        <!-- 桌面导航 -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="text-dark hover:text-primary font-medium transition-colors">首页</a>
+          <a href="#about" class="text-dark hover:text-primary font-medium transition-colors">关于我们</a>
+          <a href="#guides" class="text-dark hover:text-primary font-medium transition-colors">导游团队</a>
+          <a href="#services" class="text-dark hover:text-primary font-medium transition-colors">服务项目</a>
+          <a href="#process" class="text-dark hover:text-primary font-medium transition-colors">定制流程</a>
+          <a href="#testimonials" class="text-dark hover:text-primary font-medium transition-colors">客户评价</a>
+          <a href="#contact" class="text-dark hover:text-primary font-medium transition-colors">联系我们</a>
+        </nav>
+        
+        <!-- 联系电话 -->
+        <div class="hidden md:flex items-center space-x-4">
+          <div class="flex items-center">
+            <i class="fa fa-phone text-primary mr-2"></i>
+            <span class="font-medium">18012361217</span>
+          </div>
+          <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg transition-colors">
+            立即预订
+          </a>
+        </div>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="md:hidden text-dark focus:outline-none">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none">
+      <div class="container mx-auto px-4 py-3">
+        <nav class="flex flex-col space-y-3 py-3">
+          <a href="#home" class="text-dark hover:text-primary font-medium py-2 transition-colors">首页</a>
+          <a href="#about" class="text-dark hover:text-primary font-medium py-2 transition-colors">关于我们</a>
+          <a href="#guides" class="text-dark hover:text-primary font-medium py-2 transition-colors">导游团队</a>
+          <a href="#services" class="text-dark hover:text-primary font-medium py-2 transition-colors">服务项目</a>
+          <a href="#process" class="text-dark hover:text-primary font-medium py-2 transition-colors">定制流程</a>
+          <a href="#testimonials" class="text-dark hover:text-primary font-medium py-2 transition-colors">客户评价</a>
+          <a href="#contact" class="text-dark hover:text-primary font-medium py-2 transition-colors">联系我们</a>
+          <div class="pt-2 border-t border-gray-100">
+            <a href="#contact" class="block bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-lg text-center transition-colors">
+              立即预订
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主横幅 -->
+  <section id="home" class="relative pt-24 md:pt-0 min-h-screen flex items-center">
+    <div class="absolute inset-0 z-0">
+      <div class="relative h-full w-full overflow-hidden">
+        <img src="https://picsum.photos/id/1036/1920/1080" alt="无锡太湖风光" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/60"></div>
+      </div>
+    </div>
+    
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 md:py-0">
+      <div class="max-w-3xl text-white">
+        <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-shadow-lg mb-6">
+          专业导游团队，<br>定制您的无锡之旅
+        </h1>
+        <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 text-shadow mb-8 max-w-xl">
+          我们是一群热爱无锡、热爱导游事业的专业导游，致力于为您提供深度、个性化的无锡旅游体验，让您真正感受太湖明珠的独特魅力。
+        </p>
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#guides" class="bg-white text-primary hover:bg-white/90 px-6 py-3 rounded-lg font-medium text-center transition-colors shadow-lg">
+            认识我们的导游
+          </a>
+          <a href="#contact" class="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-lg font-medium text-center transition-colors shadow-lg">
+            定制专属行程
+          </a>
+        </div>
+        
+        <!-- 统计数字 -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-16">
+          <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center transform hover:scale-105 transition-transform">
+            <div class="text-3xl font-bold mb-1">20+</div>
+            <div class="text-sm">专业导游</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center transform hover:scale-105 transition-transform">
+            <div class="text-3xl font-bold mb-1">100+</div>
+            <div class="text-sm">定制线路</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center transform hover:scale-105 transition-transform">
+            <div class="text-3xl font-bold mb-1">5k+</div>
+            <div class="text-sm">满意客户</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg text-center transform hover:scale-105 transition-transform">
+            <div class="text-3xl font-bold mb-1">98%</div>
+            <div class="text-sm">好评率</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 波浪形分隔符 -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-[60px] md:h-[100px]">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0Z" opacity=".25" class="fill-white"></path>
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".5" class="fill-white"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" class="fill-white"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 关于我们 -->
+  <section id="about" class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">关于我们的导游工作室</h2>
+        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">一群热爱无锡、热爱导游事业的专业人士，致力于为您提供最优质的旅游体验</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative">
+          <div class="rounded-xl overflow-hidden shadow-xl transform hover:scale-[1.02] transition-transform">
+            <img src="https://picsum.photos/id/1039/800/600" alt="无锡导游团队合影" class="w-full h-auto">
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-primary text-white p-6 rounded-lg shadow-lg max-w-xs transform hover:scale-105 transition-transform">
+            <div class="flex items-center mb-2">
+              <i class="fa fa-heart text-accent text-xl mr-2"></i>
+              <h3 class="font-bold text-lg">用心服务</h3>
+            </div>
+            <p class="text-sm">我们不仅是导游，更是您在无锡的朋友，用心为您打造难忘的旅行回忆</p>
+          </div>
+        </div>
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">我们的故事</h3>
+          <p class="text-gray-600 mb-6">无锡导游工作室成立于2015年，由一群热爱旅游、热爱无锡的专业导游共同创立。我们都曾在大型旅行社工作多年，拥有丰富的导游经验和专业知识。</p>
+          
+          <p class="text-gray-600 mb-6">我们发现，传统旅行社的旅游模式往往过于商业化，游客难以真正体验到当地的文化和生活。于是，我们决定成立自己的导游工作室，专注于提供个性化、深度化的旅游服务，让游客能够像当地人一样体验无锡。</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-check text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">专业团队</h4>
+                <p class="text-gray-600">所有导游均持有国家认证导游证，平均从业经验8年以上，熟悉无锡的历史文化和景点特色</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-map-marker text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">本地专家</h4>
+                <p class="text-gray-600">我们都是土生土长的无锡人，了解无锡的每一个角落，能为您推荐最地道的美食和最隐秘的景点</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-heart text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">用心服务</h4>
+                <p class="text-gray-600">我们坚持以游客为中心，提供贴心、细致的服务，让您的无锡之旅更加舒适、便捷、难忘</p>
+              </div>
+            </div>
+          </div>
+          
+          <a href="#guides" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg">
+            认识我们的导游 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 导游团队 -->
+  <section id="guides" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">我们的导游团队</h2>
+        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">每位导游都有自己的专业特长和独特风格，为您提供个性化的旅游体验</p>
+      </div>
+      
+      <!-- 导游筛选 -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button class="guide-filter-btn bg-primary text-white px-5 py-2 rounded-full text-sm font-medium transition-colors" data-filter="all">
+          全部导游
+        </button>
+        <button class="guide-filter-btn bg-white text-dark hover:bg-primary hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-colors shadow-sm" data-filter="history">
+          历史文化专家
+        </button>
+        <button class="guide-filter-btn bg-white text-dark hover:bg-primary hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-colors shadow-sm" data-filter="food">
+          美食探索家
+        </button>
+        <button class="guide-filter-btn bg-white text-dark hover:bg-primary hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-colors shadow-sm" data-filter="nature">
+          自然风光向导
+        </button>
+        <button class="guide-filter-btn bg-white text-dark hover:bg-primary hover:text-white px-5 py-2 rounded-full text-sm font-medium transition-colors shadow-sm" data-filter="business">
+          商务考察顾问
+        </button>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 导游卡片 1 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="history">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1005/600/400" alt="导游张明" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">张明</h3>
+              <p class="text-white/80 text-sm">历史文化专家 | 从业12年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">历史文化</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">古迹讲解</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">摄影指导</span>
+            </div>
+            <p class="text-gray-600 mb-4">张导游是土生土长的无锡人，对无锡的历史文化有着深入研究，曾出版《无锡历史文化探索》一书。他擅长将枯燥的历史故事讲得生动有趣，让您在游览中轻松了解无锡的过去和现在。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.9</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导游卡片 2 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="food">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1006/600/400" alt="导游李娜" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">李娜</h3>
+              <p class="text-white/80 text-sm">美食探索家 | 从业8年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">美食探索</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">本地小吃</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">亲子游</span>
+            </div>
+            <p class="text-gray-600 mb-4">李导游是个十足的"吃货"，对无锡的大街小巷了如指掌，能带您品尝到最地道的无锡美食。她还会教您如何辨别正宗的无锡小笼包、酱排骨，让您的味蕾也能体验一场难忘的旅行。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star-half-o text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.7</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导游卡片 3 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="nature">
+          <div class="relative overflow-hidden">
+            <img src="https://picsum.photos/id/1012/600/400" alt="导游王强" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">王强</h3>
+              <p class="text-white/80 text-sm">自然风光向导 | 从业10年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">自然风光</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">户外探险</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">摄影指导</span>
+            </div>
+            <p class="text-gray-600 mb-4">王导游是一位户外爱好者，熟悉无锡及周边的自然风光和徒步路线。他能带您探索太湖的隐秘角落，欣赏最美的日出日落，还会教您如何拍摄出专业级的风景照片，让您的旅行相册更加精彩。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.8</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导游卡片 4 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="business">
+          <div class="relative overflow-hidden">
+            <img src="https://dimg04.c-ctrip.com/images/0304f12000ddz9wqt86F4_D_769_510_Q100.jpg" alt="导游陈静" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">陈静</h3>
+              <p class="text-white/80 text-sm">商务考察顾问 | 从业15年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">商务考察</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">多语种</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">企业对接</span>
+            </div>
+            <p class="text-gray-600 mb-4">陈导游精通英语、日语和韩语，拥有丰富的商务接待经验。她熟悉无锡的产业特色和企业情况，能为商务考察团提供专业的翻译和对接服务，帮助企业更好地了解无锡的投资环境和商业机会。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star-half-o text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.6</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导游卡片 5 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="history">
+          <div class="relative overflow-hidden">
+            <img src="https://dimg04.c-ctrip.com/images/0302o12000f5npuuz3E88_D_769_510_Q100.jpg" alt="导游刘阳" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">刘阳</h3>
+              <p class="text-white/80 text-sm">民俗文化专家 | 从业9年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">民俗文化</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">非遗体验</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">水乡风情</span>
+            </div>
+            <p class="text-gray-600 mb-4">刘导游是一位民俗文化爱好者，对无锡的传统习俗和非物质文化遗产有着深入研究。他能带您参观惠山泥人厂，体验锡绣制作，还会教您唱几句锡剧，让您深度感受无锡的民俗文化魅力。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.9</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 导游卡片 6 -->
+        <div class="guide-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group" data-category="nature">
+          <div class="relative overflow-hidden">
+            <img src="https://dimg04.c-ctrip.com/images/0302x12000jihelmb90C7_D_769_510_Q100.jpg" alt="导游赵琳" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-dark/80 to-transparent p-4">
+              <h3 class="text-white font-bold text-xl">赵琳</h3>
+              <p class="text-white/80 text-sm">生态旅游专家 | 从业7年</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap mb-4 gap-2">
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">生态旅游</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">鸟类观察</span>
+              <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">植物识别</span>
+            </div>
+            <p class="text-gray-600 mb-4">赵导游是一位生态爱好者，对无锡的动植物资源有着深入了解。她能带您参观无锡动物园，探索太湖湿地，教您识别各种鸟类和植物，让您在欣赏美景的同时，也能学到丰富的生态知识。</p>
+            <div class="flex justify-between items-center">
+              <div class="flex">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star-o text-accent"></i>
+                <span class="ml-2 text-sm font-medium">4.2</span>
+              </div>
+              <button class="text-primary hover:text-primary/80 font-medium transition-colors">
+                查看详情 <i class="fa fa-angle-right ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center mt-12">
+        <a href="#contact" class="inline-block bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg">
+          预约专属导游 <i class="fa fa-user-plus ml-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服务项目 -->
+  <section id="services" class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">我们的服务项目</h2>
+        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">为您提供全方位的导游服务，满足不同类型的旅游需求</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 服务卡片 1 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-user"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">私人定制导游</h3>
+          <p class="text-gray-600 mb-4">根据您的兴趣爱好、时间和预算，为您量身定制专属的无锡旅游行程，提供一对一的导游服务。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">个性化行程设计</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">专属导游全程陪同</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">灵活调整行程安排</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- 服务卡片 2 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-users"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">小团导游服务</h3>
+          <p class="text-gray-600 mb-4">为家庭、朋友或小型团队提供专业导游服务，让您的旅行更加灵活、自由，同时享受团队的乐趣。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">2-10人小团服务</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">专业导游带队</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">团队互动活动</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- 服务卡片 3 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-briefcase"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">商务考察服务</h3>
+          <p class="text-gray-600 mb-4">为企业和机构提供专业的商务考察导游服务，包括工业园区参观、企业对接和商务会议安排。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">专业商务导游</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">多语种翻译服务</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">企业对接安排</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- 服务卡片 4 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">研学旅游服务</h3>
+          <p class="text-gray-600 mb-4">针对学生群体设计的研学旅游项目，结合无锡的历史文化、科技创新和自然景观，提供专业的讲解和指导。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">教育性旅游活动</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">专业研学导师</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">实践体验活动</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- 服务卡片 5 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-camera"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">摄影导游服务</h3>
+          <p class="text-gray-600 mb-4">为摄影爱好者提供专业的摄影导游服务，带您前往无锡最美的拍摄地点，提供专业的摄影指导和建议。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">最佳拍摄地点推荐</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">专业摄影指导</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">光线和构图建议</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- 服务卡片 6 -->
+        <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow group">
+          <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary text-2xl group-hover:bg-primary group-hover:text-white transition-colors">
+            <i class="fa fa-cutlery"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3">美食探索服务</h3>
+          <p class="text-gray-600 mb-4">带您品尝无锡最地道的美食，从著名的无锡小笼包、酱排骨到隐藏在小巷中的特色小吃。</p>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">本地美食推荐</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">特色餐厅预订</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-check text-secondary mr-2"></i>
+              <span class="text-gray-600">美食文化讲解</span>
+            </li>
+          </ul>
+          <a href="#contact" class="text-primary font-medium inline-flex items-center hover:text-primary/80 transition-colors">
+            了解详情 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 定制流程 -->
+  <section id="process" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">简单四步，定制您的完美旅程</h2>
+        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">我们简化了定制流程，让您轻松获得专属的无锡旅游体验</p>
+      </div>
+      
+      <div class="grid md:grid-cols-4 gap-8">
+        <!-- 流程步骤 1 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
+            1
+          </div>
+          <div class="text-center pt-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 text-primary text-2xl">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">提交需求</h3>
+            <p class="text-gray-600">填写在线咨询表单，告诉我们您的旅行时间、人数、兴趣爱好和预算等信息。</p>
+          </div>
+        </div>
+        
+        <!-- 流程步骤 2 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
+            2
+          </div>
+          <div class="text-center pt-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 text-primary text-2xl">
+              <i class="fa fa-comments"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">沟通方案</h3>
+            <p class="text-gray-600">我们的旅游顾问会与您联系，深入了解您的需求，为您推荐最合适的导游和行程方案。</p>
+          </div>
+        </div>
+        
+        <!-- 流程步骤 3 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
+            3
+          </div>
+          <div class="text-center pt-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 text-primary text-2xl">
+              <i class="fa fa-calendar-check-o"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">确认预订</h3>
+            <p class="text-gray-600">您确认行程方案后，我们会发送预订确认单，您可以通过在线支付或银行转账完成付款。</p>
+          </div>
+        </div>
+        
+        <!-- 流程步骤 4 -->
+        <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow relative">
+          <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
+            4
+          </div>
+          <div class="text-center pt-6">
+            <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-6 text-primary text-2xl">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-3">开始旅程</h3>
+            <p class="text-gray-600">旅行当天，您的专属导游会在约定地点等候您，开始您的无锡之旅。</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-16 bg-primary/5 rounded-xl p-8 border border-primary/20">
+        <div class="flex flex-col md:flex-row items-center justify-between">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-2xl font-bold mb-2">准备好开始您的无锡之旅了吗？</h3>
+            <p class="text-gray-600">填写下方表单，我们的旅游顾问将在24小时内与您联系，为您定制专属行程。</p>
+          </div>
+          <a href="#contact" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg">
+            立即定制 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 客户评价 -->
+  <section id="testimonials" class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">客户评价</h2>
+        <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+        <p class="text-gray-600 max-w-2xl mx-auto">听听我们的客户怎么说</p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- 评价卡片 1 -->
+        <div class="bg-gray-50 rounded-xl p-6 relative">
+          <div class="absolute -top-4 left-6 text-5xl text-primary/20">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex mb-4">
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+            </div>
+            <p class="text-gray-600 mb-6">张导游的历史文化讲解非常精彩，让我们对无锡的历史有了更深入的了解。他还带我们去了一些游客很少的小巷，品尝了地道的无锡小吃，这是我们这次旅行最大的惊喜！</p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/1027/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-bold">李先生</h4>
+                <p class="text-gray-500 text-sm">上海游客 | 历史文化之旅</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 评价卡片 2 -->
+        <div class="bg-gray-50 rounded-xl p-6 relative">
+          <div class="absolute -top-4 left-6 text-5xl text-primary/20">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex mb-4">
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star-half-o text-accent"></i>
+            </div>
+            <p class="text-gray-600 mb-6">李娜导游带我们品尝了无锡最地道的美食，从老字号餐厅到街边小吃，每一道都让人难忘。她还教我们如何辨别正宗的无锡小笼包，这个技能在以后自己寻找美食时肯定会用到！</p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/1066/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-bold">王女士</h4>
+                <p class="text-gray-500 text-sm">北京游客 | 美食探索之旅</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 评价卡片 3 -->
+        <div class="bg-gray-50 rounded-xl p-6 relative">
+          <div class="absolute -top-4 left-6 text-5xl text-primary/20">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex mb-4">
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+              <i class="fa fa-star text-accent"></i>
+            </div>
+            <p class="text-gray-600 mb-6">我们公司组织了一次商务考察，陈静导游的专业服务让我们非常满意。她不仅提供了专业的翻译服务，还为我们安排了与多家无锡企业的对接，这次考察取得了超出预期的成果。</p>
+            <div class="flex items-center">
+              <img src="https://picsum.photos/id/1074/100/100" alt="客户头像" class="w-12 h-12 rounded-full object-cover mr-4">
+              <div>
+                <h4 class="font-bold">田中先生</h4>
+                <p class="text-gray-500 text-sm">日本某企业 | 商务考察</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 更多评价轮播 -->
+      <div class="mt-16">
+        <h3 class="text-xl font-bold text-center mb-8">更多客户评价</h3>
+        <div class="testimonial-carousel overflow-x-auto scrollbar-hide py-4">
+          <div class="flex space-x-6 min-w-max">
+            <!-- 轮播评价 1 -->
+            <div class="bg-gray-50 rounded-xl p-6 w-80 shadow-sm">
+              <div class="flex mb-3">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star-o text-accent"></i>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">王强导游带我们探索了太湖的自然风光，他对鸟类和植物的了解让我们大开眼界。他还帮我们拍了很多漂亮的照片，这是我们旅行相册中最精彩的部分。</p>
+              <div class="flex items-center">
+                <img src="https://picsum.photos/id/1025/80/80" alt="客户头像" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                  <h4 class="font-bold text-sm">张先生</h4>
+                  <p class="text-gray-500 text-xs">广州游客 | 自然风光之旅</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 轮播评价 2 -->
+            <div class="bg-gray-50 rounded-xl p-6 w-80 shadow-sm">
+              <div class="flex mb-3">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">刘阳导游带我们体验了无锡的民俗文化，从惠山泥人制作到锡绣体验，每一项活动都非常有趣。他对无锡民俗文化的深入了解让我们对这座城市有了全新的认识。</p>
+              <div class="flex items-center">
+                <img src="https://picsum.photos/id/1062/80/80" alt="客户头像" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                  <h4 class="font-bold text-sm">李女士</h4>
+                  <p class="text-gray-500 text-xs">成都游客 | 民俗文化之旅</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 轮播评价 3 -->
+            <div class="bg-gray-50 rounded-xl p-6 w-80 shadow-sm">
+              <div class="flex mb-3">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star-half-o text-accent"></i>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">赵琳导游带我们的学生团队进行了一次非常有意义的研学旅行。她不仅讲解专业，还组织了很多互动活动，让孩子们在玩乐中学习，这是一次非常成功的研学活动。</p>
+              <div class="flex items-center">
+                <img src="https://picsum.photos/id/1000/80/80" alt="客户头像" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                  <h4 class="font-bold text-sm">王老师</h4>
+                  <p class="text-gray-500 text-xs">上海某学校 | 研学旅行</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 轮播评价 4 -->
+            <div class="bg-gray-50 rounded-xl p-6 w-80 shadow-sm">
+              <div class="flex mb-3">
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+                <i class="fa fa-star text-accent"></i>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">我们是一个摄影爱好者团队，张明导游带我们去了很多无锡的摄影圣地，提供了专业的摄影指导。他对光线和构图的理解让我们拍出了很多精彩的作品，非常感谢！</p>
+              <div class="flex items-center">
+                <img src="https://picsum.photos/id/1074/80/80" alt="客户头像" class="w-10 h-10 rounded-full object-cover mr-3">
+                <div>
+                  <h4 class="font-bold text-sm">陈先生</h4>
+                  <p class="text-gray-500 text-xs">深圳游客 | 摄影之旅</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="py-20 bg-primary/5">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-[clamp(1.75rem,3vw,2.5rem)] font-bold text-dark mb-4">联系我们</h2>
+          <div class="w-20 h-1 bg-primary mb-6"></div>
+          <p class="text-gray-600 mb-8">无论您有任何疑问或需求，都可以通过以下方式联系我们，我们的专业团队将竭诚为您服务</p>
+          
+          <div class="space-y-6 mb-8">
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-map-marker text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">工作室地址</h4>
+                <p class="text-gray-600">无锡市新吴区梅村街道香珺苑17-13</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-phone text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">联系电话</h4>
+                <p class="text-gray-600">18012361217</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-envelope text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">电子邮箱</h4>
+                <p class="text-gray-600">info@932168783@qq.com</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                <i class="fa fa-clock-o text-primary text-xl"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg mb-1">工作时间</h4>
+                <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                <p class="text-gray-600">周六至周日: 9:30 - 17:00</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex space-x-4">
+            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa fa-qq"></i>
+            </a>
+            <a href="#" class="bg-primary hover:bg-primary/90 text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-xl p-8">
+          <h3 class="text-2xl font-bold mb-6">预约导游或咨询</h3>
+          <form id="contact-form">
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label for="name" class="block text-gray-700 mb-2">姓名</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的姓名" required>
+              </div>
+              <div>
+                <label for="phone" class="block text-gray-700 mb-2">电话</label>
+                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="请输入您的电话" required>
+              </div>
+            </div>
+            
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 mb-2">邮箱</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2
